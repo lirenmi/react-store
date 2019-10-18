@@ -2,7 +2,8 @@
 body {
   overflow: hidden;
 }
-.top-bar {
+// ------------ Header component --------
+.header {
   background-color: rgba(0, 0, 0, 1);
   width: 100%;
   height: 44px;
@@ -15,20 +16,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    & a {
+      display: inline-block;
+      color: #fff;
+      padding: 0 8px;
+      transition: all 0.2s;
+      text-transform: uppercase;
       font-size: 13px;
-      & a {
-        display: inline-block;
-        color: #fff;
-        padding: 0 8px;
-        transition: all 0.2s;
-        text-transform: uppercase;
-        &:hover {
-          color: #ddd;
-        }
+      &:hover {
+        color: #ddd;
       }
     }
     .nickname {
