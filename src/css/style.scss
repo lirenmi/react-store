@@ -40,6 +40,17 @@ body {
     }
   }
 }
+
+// ------------- NotFound Component -------------
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.6rem;
+  font-weight: 900;
+}
 // ------------- ToolBox Component -------------
 .tool-box {
   max-width: 1100px;
