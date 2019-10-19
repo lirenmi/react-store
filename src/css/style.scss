@@ -28,8 +28,15 @@ body {
       }
     }
     .nickname {
-      padding-left: 0.3rem;
-      text-transform: none;
+      padding-left: 0.4rem;
+      font-size: 13px;
+      cursor: pointer;
+      &:hover {
+        color: #ddd;
+      }
+      i {
+        margin-right: 4px;
+      }
     }
   }
 }
