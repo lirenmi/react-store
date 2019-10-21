@@ -1,33 +1,20 @@
 import React from 'react';
 
 class Login extends React.Component {
-  // State
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     isLike: false
-  //   };
-  // }
+  // 受控组件
+  // 非受控组件
 
   state = {
-    isLike: false,
-    count: 0
+    email: '',
+    password: ''
   };
-
-  // Refs
-  emailRef = React.createRef();
-  passwordRef = React.createRef();
 
   handleSubmit = event => {
     // 1. 阻止默认事件行为
     event.preventDefault();
 
     // 2. 获取表单数据
-    const formData = {
-      email: this.emailRef.current.value,
-      password: this.passwordRef.current.value
-    };
-    console.log(formData);
+    console.log(this.state);
 
     // 3. 处理登录逻辑
 
@@ -35,16 +22,9 @@ class Login extends React.Component {
     // this.props.history.push('/');
   };
 
-  handleClick = () => {
+  handleChange = e => {
     this.setState({
-      isLike: !this.state.isLike
-    });
-    this.setState({
-      count: this.state.count + 1
-    });
-
-    this.setState(prevState => {
-      return { count: prevState.count + 2 };
+      [e.target.name]: e.target.value
     });
   };
 
@@ -59,7 +39,9 @@ class Login extends React.Component {
                 className="input"
                 type="text"
                 placeholder="Email"
-                ref={this.emailRef}
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
               />
             </div>
           </div>
@@ -70,7 +52,9 @@ class Login extends React.Component {
                 className="input"
                 type="password"
                 placeholder="Password"
-                ref={this.passwordRef}
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
               />
             </div>
           </div>
@@ -78,15 +62,6 @@ class Login extends React.Component {
             <button className="button is-fullwidth is-primary">Login</button>
           </div>
         </form>
-
-        <div className="control">
-          <button
-            className="button is-fullwidth is-link"
-            onClick={this.handleClick}
-          >
-            {this.state.isLike ? 'NO' : '👍'}
-          </button>
-        </div>
       </div>
     );
     // JSX  Babel  Emmet
