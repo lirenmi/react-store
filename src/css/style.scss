@@ -150,19 +150,20 @@ body {
   }
 }
 
-.product-box-enter {
+.product-fade-enter {
   opacity: 0.1;
-  transition: all 0.3s ease-in;
 }
-.product-box-enter.product-box-enter-active {
-  opacity: 1;
-}
-.product-box-exit {
+.product-fade-enter-active {
   opacity: 1;
   transition: all 0.3s ease-in;
 }
-.product-box-exit.product-box-exit-active {
+
+.product-fade-exit {
+  opacity: 1;
+}
+.product-fade-exit-active {
   opacity: 0.1;
+  transition: all 0.3s ease-in;
 }
 
 // -------- product component -------
