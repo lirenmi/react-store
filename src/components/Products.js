@@ -4,6 +4,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ToolBox from 'components/ToolBox';
 import Product from 'components/Product';
 import Panel from 'components/Panel';
+import AddInventory from 'components/AddInventory';
 
 class Products extends React.Component {
   state = {
@@ -40,7 +41,12 @@ class Products extends React.Component {
   };
 
   toAdd = () => {
-    Panel.open();
+    Panel.open({
+      component: AddInventory,
+      callback: data => {
+        console.log('Products Data: ', data);
+      }
+    });
   };
 
   render() {

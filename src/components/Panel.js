@@ -1,6 +1,9 @@
 /**
  1. 一次渲染，随需调用
  2. 装载组件
+    (1)、子组件作为参数传递并被渲染
+    (2)、子组件可以关闭弹出层
+    (3)、子组件与调用者可以通讯
  */
 
 import React from 'react';
@@ -8,19 +11,30 @@ import { render } from 'react-dom';
 
 class Panel extends React.Component {
   state = {
-    active: false
+    active: false,
+    component: null,
+    callback: () => {}
   };
 
-  open = () => {
+  open = options => {
+    const { component, callback } = options;
+    const _key = new Date().getTime();
+    const _component = React.createElement(component, {
+      close: this.close,
+      key: _key
+    });
     this.setState({
-      active: true
+      active: true,
+      component: _component,
+      callback: callback
     });
   };
 
-  close = () => {
+  close = data => {
     this.setState({
       active: false
     });
+    this.state.callback(data);
   };
 
   render() {
@@ -36,7 +50,7 @@ class Panel extends React.Component {
             <span className="close" onClick={this.close}>
               ×
             </span>
-            <p className="has-text-centered">Children Component</p>
+            {this.state.component}
           </div>
         </div>
       </div>
@@ -48,5 +62,4 @@ const _div = document.createElement('div');
 document.body.appendChild(_div);
 
 const _panel = render(<Panel />, _div);
-console.log(_panel);
 export default _panel;
