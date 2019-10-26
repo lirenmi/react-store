@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
 class ToolBox extends React.Component {
   state = {
     searchText: ''
@@ -18,6 +18,10 @@ class ToolBox extends React.Component {
       searchText: ''
     });
     this.props.search('');
+  };
+
+  goCart = () => {
+    this.props.history.push('/cart');
   };
 
   render() {
@@ -42,7 +46,7 @@ class ToolBox extends React.Component {
             </div>
           </div>
         </div>
-        <div className="cart-box">
+        <div to="/cart" className="cart-box" onClick={this.goCart}>
           <i className="fas fa-shopping-cart"></i>
           <span className="cart-num">({this.props.cartNum})</span>
         </div>
@@ -51,4 +55,4 @@ class ToolBox extends React.Component {
   }
 }
 
-export default ToolBox;
+export default withRouter(ToolBox);
