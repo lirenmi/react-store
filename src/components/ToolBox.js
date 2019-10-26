@@ -44,7 +44,7 @@ class ToolBox extends React.Component {
         </div>
         <div className="cart-box">
           <i className="fas fa-shopping-cart"></i>
-          <span className="cart-num">(0)</span>
+          <span className="cart-num">({this.props.cartNum})</span>
         </div>
       </div>
     );

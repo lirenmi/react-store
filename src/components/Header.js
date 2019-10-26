@@ -13,6 +13,7 @@ const Header = props => (
             {props.nickname}
           </span>
         ) : (
+          // <React.Fragment></React.Fragment> 可以使用简写 <></>
           <React.Fragment>
             <a href="/">Login</a>
             <a href="/">Register</a>
