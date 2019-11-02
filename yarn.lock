@@ -8374,6 +8374,11 @@ react-error-overlay@^6.0.3:
   resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-6.0.3.tgz#c378c4b0a21e88b2e159a3e62b2f531fd63bf60d"
   integrity sha1-w3jEsKIeiLLhWaPmKy9TH9Y79g0=
 
+react-hook-form@^3.26.4:
+  version "3.26.4"
+  resolved "https://registry.npm.taobao.org/react-hook-form/download/react-hook-form-3.26.4.tgz#535c2b8862a4aa899fea454b01480e7e0c3e377f"
+  integrity sha1-U1wriGKkqomf6kVLAUgOfgw+N38=
+
 react-is@^16.6.0, react-is@^16.7.0:
   version "16.10.2"
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.10.2.tgz#984120fd4d16800e9a738208ab1fba422d23b5ab"
