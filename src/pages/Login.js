@@ -1,19 +1,27 @@
 import React from 'react';
+import axios from 'commons/axios';
 import useForm from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 export default function Login(props) {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = data => {
-    // 2. 获取表单数据
-    console.log(data);
-
+  const onSubmit = async data => {
     // 3. 处理登录逻辑
-
-    // 4. 跳转到首页视图
-    // this.props.history.push('/');
+    try {
+      const { email, password } = data;
+      const res = await axios.post('/auth/login', { email, password });
+      const jwToken = res.data;
+      console.log(jwToken);
+      global.auth.setToken(jwToken);
+      toast.success('Login Success');
+      // 4. 跳转到首页视图
+      props.history.push('/');
+    } catch (error) {
+      const message = error.response.data.message;
+      toast.error(message);
+    }
   };
-  console.log(errors);
 
   return (
     <div className="login-wrapper">
