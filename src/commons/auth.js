@@ -42,5 +42,6 @@ const logout = () => {
 global.auth = {
   setToken,
   getUser,
+  isLogin,
   logout
 };
